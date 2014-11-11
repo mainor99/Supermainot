@@ -32,6 +32,7 @@ public class CajaEstandar extends Caja {
         //imagen de la caja
         Caja = new ImageIcon(getClass().getResource("Caja.png")).getImage();
          this.nombre = nombre;
+         this.tipo=true;
     }
     
      public void dibujar(Graphics g) {

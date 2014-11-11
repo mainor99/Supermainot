@@ -21,9 +21,8 @@ public abstract class Caja extends Thread{
     public int X;
     public int Y;
     public LinkedList<Cliente> clientes= new LinkedList<>();
-    
+    public boolean tipo;
    private String nombre;
-
    // private LinkedList<Cliente> clientes=new LinkedList();
     private SuperMercado superMain;
 

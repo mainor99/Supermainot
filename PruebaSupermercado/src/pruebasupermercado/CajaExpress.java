@@ -34,6 +34,7 @@ public class CajaExpress extends Caja{
         //imagen de la caja
         Caja = new ImageIcon(getClass().getResource("Caja.png")).getImage();
          this.nombre = nombre;
+         this.tipo=false;
     }
     
      public void dibujar(Graphics g) {
