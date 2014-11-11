@@ -15,12 +15,13 @@ import javax.swing.ImageIcon;
  *
  * @author Admin
  */
-public class Clientes {
+public class Cliente {
      private Image cliente;
     //Coordenadas de la pelota
     public int X;
     public int Y;
-
+    private String nombre;
+    private Contenedor contenedor;
     private int velocidad_X;
     private int velocidad_Y;
 
@@ -29,11 +30,13 @@ public class Clientes {
     private int limite_superior=0;
     private int limite_inferior;
     
-    public Clientes(int x, int y) {
+    public Cliente(int x, int y,String nombre, Contenedor contenedor) {
         //coordenadas iniciales
         this.X = x; this.Y = y;
         //imagen de la pelota
         cliente = new ImageIcon(getClass().getResource("Cliente.jpg")).getImage();
+         this.nombre = nombre;
+        this.contenedor = contenedor;
     }
     public void dibujar(Graphics g) {
         Graphics2D g2 = (Graphics2D)g;
@@ -68,5 +71,25 @@ public class Clientes {
         velocidad_X = 4;
         velocidad_Y =5;
         
+    }
+           public String getNombre() {
+        return nombre;
+    }
+           
+    public Cliente(String nombre, Contenedor contenedor) {
+        this.nombre = nombre;
+        this.contenedor = contenedor;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Contenedor getContenedor() {
+        return contenedor;
+    }
+
+    public void setContenedor(Contenedor contenedor) {
+        this.contenedor = contenedor;
     }
 }

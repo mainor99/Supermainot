@@ -13,9 +13,11 @@ import javax.swing.JOptionPane;
  *
  * @author Admin
  */
-public class Super extends javax.swing.JFrame {
+public class Super extends javax.swing.JFrame implements Runnable {
          Panel mipanel;//new Panel( this.jPanel1.getSize() );
          boolean primera=false;
+         public SuperMercado sup ;
+         int cont=0;
             // private LinkedList<Clientes> ListaClientes= new LinkedList<Clientes>();
             // private LinkedList<Cajero> ListaCajas= new LinkedList<Cajero>();
     /**
@@ -25,18 +27,20 @@ public class Super extends javax.swing.JFrame {
         initComponents();
         setTitle( "Mainor Gamboa was here" );
         setLocationRelativeTo(null);
-   /* Cajero ACaja = new Cajero(15, 21);
-    Cajero BCaja = new Cajero(105, 21);
-    Cajero CCaja = new Cajero(195, 21);
-    Cajero DCaja = new Cajero(285, 21);
-    Cajero ECaja = new Cajero(375, 21);
-    Cajero FCaja = new Cajero(465, 21);
-    Cajero GCaja = new Cajero(555, 21);
-    Cajero HCaja = new Cajero(645, 21);
-    Cajero ICaja = new Cajero(735, 21);
-    Cajero JCaja = new Cajero(825, 21);
-    Clientes cliente = new Clientes(260, 310);
-    Clientes cliente2 = new Clientes(160, 310);
+     
+                
+   /* Caja ACaja = new Caja(15, 21);
+    Caja BCaja = new Caja(105, 21);
+    Caja CCaja = new Caja(195, 21);
+    Caja DCaja = new Caja(285, 21);
+    Caja ECaja = new Caja(375, 21);
+    Caja FCaja = new Caja(465, 21);
+    Caja GCaja = new Caja(555, 21);
+    Caja HCaja = new Caja(645, 21);
+    Caja ICaja = new Caja(735, 21);
+    Caja JCaja = new Caja(825, 21);
+    Cliente cliente = new Cliente(260, 310);
+    Cliente cliente2 = new Cliente(160, 310);
         ListaCajas.add(ACaja);
         ListaCajas.add(BCaja);
         ListaCajas.add(CCaja);
@@ -66,6 +70,7 @@ public class Super extends javax.swing.JFrame {
         button1 = new java.awt.Button();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -97,22 +102,32 @@ public class Super extends javax.swing.JFrame {
         jLabel2.setText("Carritos");
         jLabel2.setName(""); // NOI18N
 
+        jButton1.setText("CrearCliente");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(520, Short.MAX_VALUE)
-                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(343, 343, 343))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(276, 276, 276)
+                        .addComponent(jButton1)))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,15 +142,17 @@ public class Super extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     
-    public void actualizarInterfaz(  LinkedList<Clientes> clientesTotales,LinkedList<Cajero> ListaCajas,LinkedList<Clientes> ListaClientesEspera,int carritos,int canastas){
+    public void actualizarInterfaz(  LinkedList<Cliente> clientesTotales,LinkedList<Caja> ListaCajas,LinkedList<Cliente> ListaClientesEspera,int carritos,int canastas){
           if(primera){
         this.mipanel.setVisible(false);
          
@@ -158,58 +175,58 @@ public class Super extends javax.swing.JFrame {
     
     private void button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button1MouseClicked
         // TODO add your handling code here:
-        
-          LinkedList<Clientes> ListaClientesGlobales = new LinkedList<Clientes>();
-         LinkedList<Clientes> ListaClientesEspera = new LinkedList<Clientes>();
-         LinkedList<Cajero> ListaCajas = new LinkedList<Cajero>();
-    Clientes cliente15 = new Clientes(0, 0);
-    Clientes cliente16 = new Clientes(0, 0);
-    Clientes cliente17 = new Clientes(0, 0);
-    Clientes cliente8 = new Clientes(0, 0);
-    Clientes cliente9 = new Clientes(0, 0);
-    Clientes cliente10 = new Clientes(0, 0);
-    Clientes cliente11 = new Clientes(0, 0);
-    Clientes cliente12 = new Clientes(0, 0);
-    Clientes cliente13 = new Clientes(0, 0);
+     /*   
+          LinkedList<Cliente> ListaClientesGlobales = new LinkedList<Cliente>();
+         LinkedList<Cliente> ListaClientesEspera = new LinkedList<Cliente>();
+         LinkedList<Caja> ListaCajas = new LinkedList<Caja>();
+    Cliente cliente15 = new Cliente(0, 0);
+    Cliente cliente16 = new Cliente(0, 0);
+    Cliente cliente17 = new Cliente(0, 0);
+    Cliente cliente8 = new Cliente(0, 0);
+    Cliente cliente9 = new Cliente(0, 0);
+    Cliente cliente10 = new Cliente(0, 0);
+    Cliente cliente11 = new Cliente(0, 0);
+    Cliente cliente12 = new Cliente(0, 0);
+    Cliente cliente13 = new Cliente(0, 0);
     
     
         
-    Cajero ACaja = new Cajero(15, 21);
+    Caja ACaja = new Caja(15, 21);
   
     ACaja.ListaClientes.add(cliente15);
   //  ACaja.ListaClientes.add(cliente16);
    // ACaja.ListaClientes.add(cliente17);
     // ACaja.ListaClientes.add(cliente12);
     
-    Cajero BCaja = new Cajero(105, 21);
+    Caja BCaja = new Caja(105, 21);
     
      BCaja.ListaClientes.add(cliente8);
    // ACaja.ListaClientes.add(cliente9);
   
     
     
-    Cajero CCaja = new Cajero(195, 21);
+    Caja CCaja = new Caja(195, 21);
      CCaja.ListaClientes.add(cliente10);
       
       
-    Cajero DCaja = new Cajero(285, 21);
+    Caja DCaja = new Caja(285, 21);
     DCaja.ListaClientes.add(cliente11);
     
-    Cajero ECaja = new Cajero(375, 21);
+    Caja ECaja = new Caja(375, 21);
     //ECaja.ListaClientes.add(cliente12);
     ECaja.ListaClientes.add(cliente13);
     
     
-    Cajero FCaja = new Cajero(465, 21);
-    Cajero GCaja = new Cajero(555, 21);
-    Cajero HCaja = new Cajero(645, 21);
-    Cajero ICaja = new Cajero(735, 21);
-    Cajero JCaja = new Cajero(825, 21);
-    Clientes cliente = new Clientes(260, 310);
-    Clientes cliente2 = new Clientes(160, 310);
-    Clientes cliente3 = new Clientes(180, 310);
-    Clientes cliente4 = new Clientes(380, 310);
-     Clientes cliente5 = new Clientes(380, 310);
+    Caja FCaja = new Caja(465, 21);
+    Caja GCaja = new Caja(555, 21);
+    Caja HCaja = new Caja(645, 21);
+    Caja ICaja = new Caja(735, 21);
+    Caja JCaja = new Caja(825, 21);
+    Cliente cliente = new Cliente(260, 310);
+    Cliente cliente2 = new Cliente(160, 310);
+    Cliente cliente3 = new Cliente(180, 310);
+    Cliente cliente4 = new Cliente(380, 310);
+     Cliente cliente5 = new Cliente(380, 310);
         ListaCajas.add(ACaja);
         ListaCajas.add(BCaja);
         ListaCajas.add(CCaja);
@@ -229,13 +246,23 @@ public class Super extends javax.swing.JFrame {
  // this.actualizarInterfaz(ListaClientes, ListaCajas, , , );
         this.actualizarInterfaz(ListaClientesGlobales, ListaCajas, ListaClientesEspera, 5, 6);
       
-
+*/
 
     }//GEN-LAST:event_button1MouseClicked
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_button1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        
+        cont++;
+        Cliente cliente = new Cliente(380, 310,"Mainor"+cont,null);
+        sup.setClientes(cliente);
+
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -274,8 +301,14 @@ public class Super extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button button1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void run() {
+        
+    }
 }
