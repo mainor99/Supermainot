@@ -18,7 +18,7 @@ import javax.swing.ImageIcon;
 public class CajaExpress extends Caja{
     private Image Caja;
     //Coordenadas de la pelota
- 
+    
   //  public LinkedList<Cliente> clientes;
 
     private String nombre;

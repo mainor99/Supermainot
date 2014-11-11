@@ -15,8 +15,9 @@ import java.util.LinkedList;
  * @author Admin
  */
 public abstract class Caja extends Thread{
-
+    public boolean Estado;
     private Image Caja;
+    public boolean tipo;
     //Coordenadas de la pelota
     public int X;
     public int Y;
