@@ -26,16 +26,27 @@ public class SuperMercado extends Thread {
     public SuperMercado() {
         
         
-         miinterfaz= new Super();
-       miinterfaz.sup=this;
-         this.seetearDatos();
+        miinterfaz= new Super();
+        miinterfaz.sup=this;
+        this.seetearDatos();
          
          
        //  this.ActualizarInterfaz(); poner al lugar de esto this .star
-         miinterfaz.setVisible(true);
+        miinterfaz.setVisible(true);
          
          
          
+    }
+    public Caja cajaOptima(){
+        
+        
+        return null;
+    }
+    public void reparteClientes(){
+        while(true){
+            esperarXsegundos(1);
+            
+        }
     }
 
     public LinkedList<Cliente> getListaClientesGlobales() {
