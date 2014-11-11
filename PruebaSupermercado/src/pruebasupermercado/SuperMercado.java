@@ -42,13 +42,13 @@ public class SuperMercado extends Thread {
         int minimo=0;
         Caja cajaAux;
         for(Caja c: ListaCajas){
-            if(c.getClientes().size()<=minimo || minimo==0 && c.get){
+            if(c.getClientes().size()<=minimo || minimo==0){
                 minimo=c.getClientes().size();
                 cajaAux=c;
             }
         }
         
-        return cajaAux;
+        return null;
     }
     public void reparteClientes(){
         while(true){
