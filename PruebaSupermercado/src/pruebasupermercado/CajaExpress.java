@@ -18,14 +18,14 @@ import javax.swing.ImageIcon;
 public class CajaExpress extends Caja{
      private Image Caja;
     //Coordenadas de la pelota
-    public int X;
-    public int Y;
+ 
   //  public LinkedList<Cliente> clientes;
 
    private String nombre;
+      private SuperMercado superMain;
 
    // private LinkedList<Cliente> clientes=new LinkedList();
-    private SuperMercado superMain;
+    
 
      public CajaExpress(int x, int y,String nombre) {
         //coordenadas iniciales

@@ -17,9 +17,7 @@ import javax.swing.ImageIcon;
  */
 public class CajaEstandar extends Caja {
     private Image Caja;
-    //Coordenadas de la pelota
-    public int X;
-    public int Y;
+
   //  public LinkedList<Cliente> clientes= new LinkedList<Cliente>();
 
    private String nombre;
