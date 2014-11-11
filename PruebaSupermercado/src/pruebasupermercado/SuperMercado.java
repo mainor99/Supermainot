@@ -37,10 +37,18 @@ public class SuperMercado extends Thread {
          
          
     }
-    public Caja cajaOptima(){
+    public Caja cajaOptima(int candProductos){
         
+        int minimo=0;
+        Caja cajaAux;
+        for(Caja c: ListaCajas){
+            if(c.getClientes().size()<=minimo || minimo==0 && c.get){
+                minimo=c.getClientes().size();
+                cajaAux=c;
+            }
+        }
         
-        return null;
+        return cajaAux;
     }
     public void reparteClientes(){
         while(true){
