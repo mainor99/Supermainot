@@ -11,7 +11,7 @@ package pruebasupermercado;
  * @author Admin
  */
 
-import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
+//import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
 import pruebasupermercado.Caja;
 import java.awt.Color;
 import java.awt.Dimension;

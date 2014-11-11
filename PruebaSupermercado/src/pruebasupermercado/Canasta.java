@@ -4,18 +4,18 @@
  * and open the template in the editor.
  */
 package pruebasupermercado;
+
 import java.util.LinkedList;
+
 /**
  *
- * @author Carlos
+ * @author Aerlepsedy
  */
-public abstract class  Contenedor {
-    int id;
-    public LinkedList<Producto> listaProductos=new LinkedList();
-
-  /*  public Contenedor(int id) {
+public class Canasta extends Contenedor{
+    
+     public Canasta(int id) {
         this.id = id;
-    }*/
+    }
 
     public int getId() {
         return id;
