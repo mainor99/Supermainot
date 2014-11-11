@@ -87,11 +87,11 @@ public class SuperMercado extends Thread {
     Caja HCaja = new Caja(645, 21,"Caja");
     Caja ICaja = new Caja(735, 21,"Caja");
     Caja JCaja = new Caja(825, 21,"Caja");*/
-    Cliente cliente = new Cliente(260, 310,"Mainor1",null);
-    Cliente cliente2 = new Cliente(160, 310,"Mainor2",null);
-    Cliente cliente3 = new Cliente(180, 310,"Mainor3",null);
-    Cliente cliente4 = new Cliente(380, 310,"Mainor4",null);
-     Cliente cliente5 = new Cliente(380, 310,"Mainor5",null);
+    Cliente cliente = new Cliente(260, 310,"Carlos",null);
+    Cliente cliente2 = new Cliente(160, 310,"Brian",null);
+    Cliente cliente3 = new Cliente(180, 310,"Nano",null);
+    Cliente cliente4 = new Cliente(380, 310,"Peniche",null);
+     Cliente cliente5 = new Cliente(380, 310,"Eder",null);
         this.crearNContenedores(4);
         this.creaNProductos(25);
         
@@ -119,7 +119,7 @@ public class SuperMercado extends Thread {
         ACaja.agegarClienteACola(cliente);
         ACaja.agegarClienteACola(cliente2);
         BCaja.agegarClienteACola(cliente3);
-    //    BCaja.agegarClienteACola(cliente4);
+        BCaja.agegarClienteACola(cliente4);
        //
         //JOptionPane.showMessageDialog(null, ACaja.clientes.get(1).getNombre());
         //JOptionPane.showMessageDialog(null, ListaCajas.get(1).clientes.size());
