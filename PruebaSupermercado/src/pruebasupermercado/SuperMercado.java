@@ -14,11 +14,10 @@ import javax.swing.JOptionPane;
  * @author Aerlepsedy
  */
 public class SuperMercado extends Thread {
-        private LinkedList<Cliente> ListaClientesGlobales = new LinkedList<Cliente>();
-        private LinkedList<Cliente> ListaClientesEspera = new LinkedList<Cliente>();
-        private LinkedList<Caja> ListaCajas = new LinkedList<Caja>();
-         Random  rnd = new Random();
-  
+    private LinkedList<Cliente> ListaClientesGlobales = new LinkedList<Cliente>();
+    private LinkedList<Cliente> ListaClientesEspera = new LinkedList<Cliente>();
+    private LinkedList<Caja> ListaCajas = new LinkedList<Caja>();
+    Random  rnd = new Random();
     private LinkedList<Producto> productos=new LinkedList();
     private LinkedList<Contenedor> contenedores=new LinkedList();
 

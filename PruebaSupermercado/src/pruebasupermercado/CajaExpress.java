@@ -16,18 +16,18 @@ import javax.swing.ImageIcon;
  * @author Aerlepsedy
  */
 public class CajaExpress extends Caja{
-     private Image Caja;
+    private Image Caja;
     //Coordenadas de la pelota
  
   //  public LinkedList<Cliente> clientes;
 
-   private String nombre;
-      private SuperMercado superMain;
+    private String nombre;
+    private SuperMercado superMain;
 
    // private LinkedList<Cliente> clientes=new LinkedList();
     
 
-     public CajaExpress(int x, int y,String nombre) {
+    public CajaExpress(int x, int y,String nombre) {
         //coordenadas iniciales
          clientes=new LinkedList<>();
         this.X = x; this.Y = y;
