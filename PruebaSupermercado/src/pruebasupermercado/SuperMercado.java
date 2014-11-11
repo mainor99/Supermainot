@@ -120,7 +120,7 @@ public class SuperMercado extends Thread {
         ACaja.agegarClienteACola(cliente);
         ACaja.agegarClienteACola(cliente2);
         BCaja.agegarClienteACola(cliente3);
-        BCaja.agegarClienteACola(cliente4);
+    //    BCaja.agegarClienteACola(cliente4);
        //
         //JOptionPane.showMessageDialog(null, ACaja.clientes.get(1).getNombre());
         //JOptionPane.showMessageDialog(null, ListaCajas.get(1).clientes.size());
