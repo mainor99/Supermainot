@@ -207,9 +207,16 @@ public class SuperMercado extends Thread {
     }
     public void crearNContenedores(int n){
         
-        for(int i=0;i<n;i++){
-            Contenedor c=new Contenedor(contenedores.size());
+        for(int i=0;i<n*2;i++){
+            if(n%2==0){
+            Canasta c=new Canasta(contenedores.size());
             agregarContenedor(c);
+            }
+            else{
+            Carrito c=new Carrito(contenedores.size());
+            agregarContenedor(c);
+            }
+            
         }
     }
     public void agregarProducto(Producto p){
