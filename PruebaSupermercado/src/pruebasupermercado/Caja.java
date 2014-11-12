@@ -10,6 +10,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import java.util.LinkedList;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Admin
@@ -22,7 +23,11 @@ public abstract class Caja extends Thread{
     public int Y;
     public LinkedList<Cliente> clientes= new LinkedList<>();
     public boolean tipo;
+<<<<<<< HEAD
      public boolean estado;
+=======
+    public boolean estado;
+>>>>>>> origin/master
    private String nombre;
    // private LinkedList<Cliente> clientes=new LinkedList();
     private SuperMercado superMain;
@@ -30,8 +35,7 @@ public abstract class Caja extends Thread{
  
     
      public void dibujar(Graphics g) {
-        Graphics2D g2 = (Graphics2D)g;
-        g2.drawImage(Caja, X, Y, null);
+       
   
     }
       public String getNombre() {
@@ -55,18 +59,17 @@ public abstract class Caja extends Thread{
     }
 
     public void setSuperMain(SuperMercado superMain) {
-        this.superMain = superMain;
+       
     }
     
     
     public void agegarClienteACola(Cliente c){
-        this.superMain.quitarCliente(c);
-        this.clientes.add(c);
+       
     }
     public void quitarClienteDeCola(Cliente c){
-        this.clientes.remove(c);
+     
     }
-    @Override
+
     public void run() {
         while(this.clientes.size()!=0){
             for(Cliente c:this.clientes){
@@ -102,14 +105,11 @@ public abstract class Caja extends Thread{
                 + this.cliente.getNombre() + " EN EL TIEMPO: "
                 + (System.currentTimeMillis() - this.initialTime) / 1000
                 + "seg");*/
+
     }
 
 	private void esperarXsegundos(int segundos) {
-		try {
-			Thread.sleep(segundos * 1000);
-		} catch (InterruptedException ex) {
-			Thread.currentThread().interrupt();
-		}
+		
 	}
 
 }

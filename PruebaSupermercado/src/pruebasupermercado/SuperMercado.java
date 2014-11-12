@@ -41,6 +41,7 @@ public class SuperMercado extends Thread {
         
         int minimo=-1;
         Caja cajaAux=null;
+
         for(int i=0;i<ListaCajas.size();i++){
             Caja c=ListaCajas.get(i);
             System.out.println(minimo);
@@ -49,10 +50,25 @@ public class SuperMercado extends Thread {
                 minimo=t;
                 cajaAux=c;
                 System.out.println(minimo);
+
+        
+        for(Caja c: ListaCajas){
+            if (c.estado){
+                if(!c.tipo && candProductos<=10){
+                    if(c.getClientes().size()<=minimo || minimo==-1){
+                        minimo=c.getClientes().size();
+                        cajaAux=c;
+                    }
+                }
+                else{
+                    if(c.getClientes().size()<=minimo || minimo==-1){
+                        minimo=c.getClientes().size();
+                        cajaAux=c;
+                    }
+                }
+
             }
-                
         }
-        //System.out.println(cajaAux.getNombre());
         return cajaAux;
     }
     public void reparteClientes(){
@@ -76,9 +92,24 @@ public class SuperMercado extends Thread {
     public LinkedList<Cliente> getListaClientesEspera() {
         return ListaClientesEspera;
     }
-
+    public int cuantasCanastas(){
+        int i=0;
+        for(Contenedor c: contenedores){
+            if(c.id==1)
+                i++;
+        }
+        return i;
+    }
+    public int cuantasCarritos(){
+        int i=0;
+        for(Contenedor c: contenedores){
+            if(c.id==0)
+                i++;
+        }
+        return i;
+    }
     public void ActualizarInterfaz(){
-      miinterfaz.actualizarInterfaz(ListaClientesGlobales, ListaCajas, ListaClientesEspera, 5, 6);
+      miinterfaz.actualizarInterfaz(ListaClientesGlobales, ListaCajas, ListaClientesEspera, cuantasCarritos(), cuantasCanastas());
     }
    
     public void seetearDatos(){
@@ -158,6 +189,7 @@ public class SuperMercado extends Thread {
        //
         //JOptionPane.showMessageDialog(null, ACaja.clientes.get(1).getNombre());
         //JOptionPane.showMessageDialog(null, ListaCajas.get(1).clientes.size());
+        this.cajaOptima(1);
         ACaja.start();
         BCaja.start();
         this.start();
@@ -183,7 +215,7 @@ public class SuperMercado extends Thread {
     
     }    
         
-         public LinkedList<Caja> getCajas() {
+    public LinkedList<Caja> getCajas() {
         return ListaCajas;
     }
 
@@ -232,12 +264,12 @@ public class SuperMercado extends Thread {
     public void crearNContenedores(int n){
         
         for(int i=0;i<n*2;i++){
-            if(n%2==0){
-            Canasta c=new Canasta(contenedores.size());
+            if(i%2==0){
+            Canasta c=new Canasta(1);
             agregarContenedor(c);
             }
             else{
-            Carrito c=new Carrito(contenedores.size());
+            Carrito c=new Carrito(0);
             agregarContenedor(c);
             }
             
@@ -247,6 +279,7 @@ public class SuperMercado extends Thread {
         this.productos.add(p);
     }
     public void agregarContenedor(Contenedor c){
+        c.getListaProductos().clear();
         this.contenedores.add(c);
     }
     public Cliente buscaCliente(String nom){
@@ -258,15 +291,7 @@ public class SuperMercado extends Thread {
         System.out.println("Error buscaCliente");
         return null;
     }
-    public Contenedor buscaContenedor(int id){
-        for(Contenedor c : this.contenedores){
-            if(c.getId()==id){
-                return c;
-            }
-        }
-        System.out.println("Error buscaContenedor");
-        return null;
-    }
+    
     public void asignaConenedorACliente(Cliente nombre){
         nombre.setContenedor(this.contenedores.get(0));
         this.asingaProductosAContenedor(this.contenedores.get(0));
