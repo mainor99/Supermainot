@@ -35,6 +35,7 @@ public class CajaExpress extends Caja{
         Caja = new ImageIcon(getClass().getResource("Caja.png")).getImage();
          this.nombre = nombre;
          this.tipo=false;
+         this.estado=true;
     }
     
      public void dibujar(Graphics g) {
@@ -80,8 +81,8 @@ public class CajaExpress extends Caja{
     public void run() {
         while(true){
             esperarXsegundos(1);
-        while(this.clientes.size()!=0){
-            for(Cliente c:this.clientes){
+       if(this.clientes.size()!=0){
+                Cliente c =clientes.get(0);
                 
                 for(Producto p : c.getContenedor().getListaProductos()){
                     System.out.println(this.nombre+" prosesando "+
@@ -90,31 +91,11 @@ public class CajaExpress extends Caja{
                     this.esperarXsegundos(p.getDuracion());
                 }
                 System.out.println("Termino "+ c.getNombre());
+                superMain.agregarContenedor(c.getContenedor());
                 this.quitarClienteDeCola(c);
             }
         }
-        }
         
-        
-        /*
-        System.out.println("La caja " + this.nombre + " COMIENZA A PROCESAR LA COMPRA DEL CLIENTE "
-                + this.cliente.getNombre() + " EN EL TIEMPO: "
-                + (System.currentTimeMillis() - this.initialTime) / 1000
-                + "seg");
-        
-        for (int i = 0; i < this.cliente.getCarroCompra().length; i++) {
-            
-            this.esperarXsegundos(cliente.getCarroCompra()[i]);
-            System.out.println("Procesado el producto " + (i + 1)
-                    + " del cliente " + this.cliente.getNombre() + "->Tiempo: "
-                    + (System.currentTimeMillis() - this.initialTime) / 1000
-                    + "seg");
-        }
-        
-        System.out.println("La cajera " + this.nombre + " HA TERMINADO DE PROCESAR "
-                + this.cliente.getNombre() + " EN EL TIEMPO: "
-                + (System.currentTimeMillis() - this.initialTime) / 1000
-                + "seg");*/
     }
 
 	private void esperarXsegundos(int segundos) {
