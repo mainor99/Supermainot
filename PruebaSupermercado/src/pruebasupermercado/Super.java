@@ -1,5 +1,6 @@
 package pruebasupermercado;
 
+import java.text.DecimalFormat;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
@@ -67,7 +68,6 @@ public class Super extends javax.swing.JFrame implements Runnable {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        button1 = new java.awt.Button();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -81,6 +81,16 @@ public class Super extends javax.swing.JFrame implements Runnable {
         jCheckBox9 = new javax.swing.JCheckBox();
         jCheckBox10 = new javax.swing.JCheckBox();
         jCheckBox11 = new javax.swing.JCheckBox();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,18 +104,6 @@ public class Super extends javax.swing.JFrame implements Runnable {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 449, Short.MAX_VALUE)
         );
-
-        button1.setLabel("button1");
-        button1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                button1MouseClicked(evt);
-            }
-        });
-        button1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button1ActionPerformed(evt);
-            }
-        });
 
         jLabel1.setText("Canastas");
 
@@ -199,51 +197,96 @@ public class Super extends javax.swing.JFrame implements Runnable {
             }
         });
 
+        jLabel3.setText("%");
+
+        jLabel4.setText("%");
+
+        jLabel5.setText("%");
+
+        jLabel7.setText("%");
+
+        jLabel8.setText("%");
+
+        jLabel9.setText("%");
+
+        jLabel10.setText("%");
+
+        jLabel11.setText("%");
+
+        jLabel12.setText("%");
+
+        jLabel13.setText("%");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(115, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
+                        .addContainerGap(115, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(251, 251, 251)
-                        .addComponent(jButton1)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel1)
+                                        .addComponent(jLabel2))
+                                    .addGap(14, 14, 14))
+                                .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addComponent(jLabel3)
+                                .addGap(79, 79, 79)
+                                .addComponent(jLabel5)
+                                .addGap(63, 63, 63)
+                                .addComponent(jLabel9)
+                                .addGap(60, 60, 60)
+                                .addComponent(jLabel7)
+                                .addGap(64, 64, 64)
+                                .addComponent(jLabel8)
+                                .addGap(62, 62, 62)
+                                .addComponent(jLabel4)
+                                .addGap(64, 64, 64)
+                                .addComponent(jLabel10)
+                                .addGap(59, 59, 59)
+                                .addComponent(jLabel13)
+                                .addGap(135, 135, 135)
+                                .addComponent(jLabel11))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(125, 125, 125)
+                        .addComponent(jCheckBox2)
+                        .addGap(34, 34, 34)
+                        .addComponent(jCheckBox3)
+                        .addGap(18, 18, 18)
+                        .addComponent(jCheckBox4)
+                        .addGap(18, 18, 18)
+                        .addComponent(jCheckBox5)
+                        .addGap(18, 18, 18)
+                        .addComponent(jCheckBox6)
+                        .addGap(20, 20, 20)
+                        .addComponent(jCheckBox7)
+                        .addGap(18, 18, 18)
+                        .addComponent(jCheckBox8)
+                        .addGap(16, 16, 16)
+                        .addComponent(jCheckBox9)
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(jLabel12))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jCheckBox10)
+                                .addGap(18, 18, 18)
+                                .addComponent(jCheckBox11)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(125, 125, 125)
-                .addComponent(jCheckBox2)
-                .addGap(34, 34, 34)
-                .addComponent(jCheckBox3)
-                .addGap(18, 18, 18)
-                .addComponent(jCheckBox4)
-                .addGap(18, 18, 18)
-                .addComponent(jCheckBox5)
-                .addGap(18, 18, 18)
-                .addComponent(jCheckBox6)
-                .addGap(20, 20, 20)
-                .addComponent(jCheckBox7)
-                .addGap(18, 18, 18)
-                .addComponent(jCheckBox8)
-                .addGap(16, 16, 16)
-                .addComponent(jCheckBox9)
-                .addGap(20, 20, 20)
-                .addComponent(jCheckBox10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox11)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
+                .addContainerGap(42, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckBox2)
                     .addComponent(jCheckBox3)
@@ -255,20 +298,35 @@ public class Super extends javax.swing.JFrame implements Runnable {
                     .addComponent(jCheckBox9)
                     .addComponent(jCheckBox10)
                     .addComponent(jCheckBox11))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel5))
+                        .addGap(4, 4, 4))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel10))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel2)
-                        .addGap(190, 190, 190))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                        .addGap(219, 219, 219)))
+                .addComponent(jButton1)
+                .addGap(11, 11, 11))
         );
 
         pack();
@@ -276,7 +334,52 @@ public class Super extends javax.swing.JFrame implements Runnable {
 
     
     public void actualizarInterfaz(  LinkedList<Cliente> clientesTotales,LinkedList<Caja> ListaCajas,LinkedList<Cliente> ListaClientesEspera,int carritos,int canastas){
-          if(primera){
+        float suma = 0;
+        
+        for (int i=0;i<ListaCajas.size();i++){
+            
+            suma +=(float) ListaCajas.get(i).tiempoAcumulado;
+         
+        }
+        DecimalFormat df=new DecimalFormat("#,##");
+        float x;
+        if(suma!=0){
+               
+        for (int i=0;i<ListaCajas.size();i++){
+            x=ListaCajas.get(i).tiempoAcumulado*100/suma;
+            if(i==0)
+              jLabel3.setText(df.format(x) +"%");
+            if(i==1)
+                jLabel5.setText(df.format(x) +"%");
+            if(i==2)
+                jLabel7.setText(df.format(x) +"%");
+            if(i==3)
+                jLabel8.setText(df.format(x) +"%");
+            if(i==4)
+                jLabel4.setText(df.format(x) +"%");
+            if(i==5)
+                jLabel10.setText(df.format(x) +"%");
+            if(i==6)
+                jLabel13.setText(df.format(x) +"%");
+            if(i==7)
+                jLabel12.setText(df.format(x) +"%");
+            if(i==8)
+                jLabel11.setText(df.format(x) +"%");
+            if(i==9)   
+                jLabel3.setText(df.format(x) +"%");
+                
+        }
+        }
+       
+        
+        
+        
+ 
+        
+        
+        
+        
+        if(primera){
         this.mipanel.setVisible(false);
          
         mipanel = new Panel( this.jPanel1.getSize(),ListaCajas,clientesTotales,ListaClientesEspera,carritos,canastas);
@@ -296,87 +399,6 @@ public class Super extends javax.swing.JFrame implements Runnable {
       mipanel.animar(true);
     }
     
-    private void button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button1MouseClicked
-        // TODO add your handling code here:
-     /*   
-          LinkedList<Cliente> ListaClientesGlobales = new LinkedList<Cliente>();
-         LinkedList<Cliente> ListaClientesEspera = new LinkedList<Cliente>();
-         LinkedList<Caja> ListaCajas = new LinkedList<Caja>();
-    Cliente cliente15 = new Cliente(0, 0);
-    Cliente cliente16 = new Cliente(0, 0);
-    Cliente cliente17 = new Cliente(0, 0);
-    Cliente cliente8 = new Cliente(0, 0);
-    Cliente cliente9 = new Cliente(0, 0);
-    Cliente cliente10 = new Cliente(0, 0);
-    Cliente cliente11 = new Cliente(0, 0);
-    Cliente cliente12 = new Cliente(0, 0);
-    Cliente cliente13 = new Cliente(0, 0);
-    
-    
-        
-    Caja ACaja = new Caja(15, 21);
-  
-    ACaja.ListaClientes.add(cliente15);
-  //  ACaja.ListaClientes.add(cliente16);
-   // ACaja.ListaClientes.add(cliente17);
-    // ACaja.ListaClientes.add(cliente12);
-    
-    Caja BCaja = new Caja(105, 21);
-    
-     BCaja.ListaClientes.add(cliente8);
-   // ACaja.ListaClientes.add(cliente9);
-  
-    
-    
-    Caja CCaja = new Caja(195, 21);
-     CCaja.ListaClientes.add(cliente10);
-      
-      
-    Caja DCaja = new Caja(285, 21);
-    DCaja.ListaClientes.add(cliente11);
-    
-    Caja ECaja = new Caja(375, 21);
-    //ECaja.ListaClientes.add(cliente12);
-    ECaja.ListaClientes.add(cliente13);
-    
-    
-    Caja FCaja = new Caja(465, 21);
-    Caja GCaja = new Caja(555, 21);
-    Caja HCaja = new Caja(645, 21);
-    Caja ICaja = new Caja(735, 21);
-    Caja JCaja = new Caja(825, 21);
-    Cliente cliente = new Cliente(260, 310);
-    Cliente cliente2 = new Cliente(160, 310);
-    Cliente cliente3 = new Cliente(180, 310);
-    Cliente cliente4 = new Cliente(380, 310);
-     Cliente cliente5 = new Cliente(380, 310);
-        ListaCajas.add(ACaja);
-        ListaCajas.add(BCaja);
-        ListaCajas.add(CCaja);
-        ListaCajas.add(DCaja);
-        ListaCajas.add(ECaja);
-        ListaCajas.add(FCaja);
-        ListaCajas.add(GCaja);
-        ListaCajas.add(HCaja);
-        ListaCajas.add(ICaja);
-        ListaCajas.add(JCaja);
-        ListaClientesGlobales.add(cliente);
-        ListaClientesGlobales.add(cliente2);
-        ListaClientesGlobales.add(cliente3);
-        ListaClientesEspera.add(cliente3);
-        ListaClientesEspera.add(cliente4);
-        ListaClientesEspera.add(cliente5);
- // this.actualizarInterfaz(ListaClientes, ListaCajas, , , );
-        this.actualizarInterfaz(ListaClientesGlobales, ListaCajas, ListaClientesEspera, 5, 6);
-      
-*/
-
-    }//GEN-LAST:event_button1MouseClicked
-
-    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_button1ActionPerformed
-
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         
         cont++;
@@ -484,7 +506,7 @@ public class Super extends javax.swing.JFrame implements Runnable {
         // TODO add your handling code here:
         if(jCheckBox11.isSelected()){
             sup.getCajas().get(9).estado=true;
-            JOptionPane.showMessageDialog(null, "si funka");
+          
         }
         else
             sup.getCajas().get(9).estado=false;
@@ -526,7 +548,6 @@ public class Super extends javax.swing.JFrame implements Runnable {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Button button1;
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox10;
     private javax.swing.JCheckBox jCheckBox11;
@@ -539,7 +560,17 @@ public class Super extends javax.swing.JFrame implements Runnable {
     private javax.swing.JCheckBox jCheckBox8;
     private javax.swing.JCheckBox jCheckBox9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
