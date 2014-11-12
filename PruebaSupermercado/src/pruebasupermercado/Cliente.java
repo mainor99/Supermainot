@@ -92,4 +92,11 @@ public class Cliente {
     public void setContenedor(Contenedor contenedor) {
         this.contenedor = contenedor;
     }
+    public int duracionCanasta(){
+        int duracion=0;
+        for(Producto p : contenedor.getListaProductos()){
+            duracion+=p.getDuracion();
+        }
+        return duracion;
+    }
 }
