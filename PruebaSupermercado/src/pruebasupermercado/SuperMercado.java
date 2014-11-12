@@ -64,8 +64,8 @@ public class SuperMercado extends Thread {
         int i;
         while(true){
             this.ActualizarInterfaz();
+            this.encenderAutomatico();
             esperarXsegundos(1);
-            
             if(ListaClientesGlobales.size()>=1 && contenedores.size()>=1){
                 this.asignaConenedorACliente(ListaClientesGlobales.get(0));
                 i=ListaClientesGlobales.get(0).getContenedor().getListaProductos().size();
@@ -107,37 +107,41 @@ public class SuperMercado extends Thread {
     
     
         
-    CajaExpress ACaja = new  CajaExpress(15, 21,"Caja");
-  
+    CajaExpress ACaja = new CajaExpress(15, 21,"Caja 1");
+    CajaExpress BCaja = new CajaExpress(105, 21,"Caja 2");
+    CajaExpress CCaja = new CajaExpress(195, 21,"Caja 3");
+    CajaExpress DCaja = new CajaExpress(285, 21,"Caja 4");
+    CajaExpress ECaja = new CajaExpress(375, 21,"Caja 5");
+    CajaEstandar FCaja = new CajaEstandar(465, 21,"Caja 6");
+    CajaEstandar GCaja = new CajaEstandar(555, 21,"Caja 7");
+    CajaEstandar HCaja = new CajaEstandar(645, 21,"Caja 8");
+    CajaEstandar ICaja = new CajaEstandar(735, 21,"Caja 9");
+    CajaEstandar JCaja = new CajaEstandar(825, 21,"Caja 10");
    /* ACaja.ListaClientes.add(cliente15);
     ACaja.ListaClientes.add(cliente16);
     ACaja.ListaClientes.add(cliente17);*/
     
     
-    CajaEstandar BCaja = new CajaEstandar(105, 21,"Caja 1");
-    /*
-     BCaja.ListaClientes.add(cliente8);
+  
+     //BCaja.ListaClientes.add(cliente8);
    // ACaja.ListaClientes.add(cliente9);
   
     
     
-    Caja CCaja = new Caja(195, 21,"Caja");
-     CCaja.ListaClientes.add(cliente10);
-      
-      
-    Caja DCaja = new Caja(285, 21,"Caja");
-    DCaja.ListaClientes.add(cliente11);
     
-    Caja ECaja = new Caja(375, 21,"Caja");
+     //CCaja.ListaClientes.add(cliente10);
+      
+      
+    
+    //DCaja.ListaClientes.add(cliente11);
+    
+    
     //ECaja.ListaClientes.add(cliente12);
-    ECaja.ListaClientes.add(cliente13);*/
+    //ECaja.ListaClientes.add(cliente13);*/
     
     /*
-    Caja FCaja = new Caja(465, 21,"Caja");
-    Caja GCaja = new Caja(555, 21,"Caja");
-    Caja HCaja = new Caja(645, 21,"Caja");
-    Caja ICaja = new Caja(735, 21,"Caja");
-    Caja JCaja = new Caja(825, 21,"Caja");*//*
+    
+    /*
     Cliente cliente = new Cliente(260, 310,"Carlos",null);
     Cliente cliente2 = new Cliente(160, 310,"Brian",null);
     Cliente cliente3 = new Cliente(180, 310,"Nano",null);
@@ -162,29 +166,15 @@ public class SuperMercado extends Thread {
         
         ACaja.setSuperMain(this);
         BCaja.setSuperMain(this);
+        CCaja.setSuperMain(this);
+        DCaja.setSuperMain(this);
+        ECaja.setSuperMain(this);
+        FCaja.setSuperMain(this);
+        GCaja.setSuperMain(this);
+        HCaja.setSuperMain(this);
+        ICaja.setSuperMain(this);
+        JCaja.setSuperMain(this);
         
-        
-      //  JOptionPane.showMessageDialog(null, ACaja.clientes.get(1).getNombre());
-     //   BCaja.agegarClienteACola(cliente4);
-      //  ListaCajas.add(ACaja);
-       // ACaja.clientes.add(cliente);
-        ListaCajas.add(ACaja);
-        ListaCajas.add(BCaja);
-        /*
-        ACaja.agegarClienteACola(cliente);
-        ACaja.agegarClienteACola(cliente2);
-        BCaja.agegarClienteACola(cliente3);
-        BCaja.agegarClienteACola(cliente4);*/
-       //
-        //JOptionPane.showMessageDialog(null, ACaja.clientes.get(1).getNombre());
-        //JOptionPane.showMessageDialog(null, ListaCajas.get(1).clientes.size());
-        this.cajaOptima(1);
-        ACaja.start();
-        BCaja.start();
-        this.start();
-        
-        
-   /*    
         ListaCajas.add(ACaja);
         ListaCajas.add(BCaja);
         ListaCajas.add(CCaja);
@@ -195,12 +185,19 @@ public class SuperMercado extends Thread {
         ListaCajas.add(HCaja);
         ListaCajas.add(ICaja);
         ListaCajas.add(JCaja);
-        ListaClientesGlobales.add(cliente);
-        ListaClientesGlobales.add(cliente2);
-        ListaClientesGlobales.add(cliente3);
-        ListaClientesEspera.add(cliente3);
-        ListaClientesEspera.add(cliente4);
-        ListaClientesEspera.add(cliente5);*/
+
+        this.cajaOptima(1);
+        ACaja.start();
+        BCaja.start();
+        CCaja.start();
+        ECaja.start();
+        FCaja.start();
+        GCaja.start();
+        ICaja.start();
+        JCaja.start();
+        this.start();
+            
+
     
     }    
         
@@ -312,13 +309,10 @@ public class SuperMercado extends Thread {
     }  
         @Override
     public void run(){
-        while(true){
-            esperarXsegundos(1);
             reparteClientes();
             
             
-            
-        }
+        
     }
     private void esperarXsegundos(int segundos) {
 		try {
@@ -327,4 +321,19 @@ public class SuperMercado extends Thread {
 			Thread.currentThread().interrupt();
 		}
 	}
+    public void encenderAutomatico(){
+        for(Caja c:ListaCajas){
+            if(c.getClientes().size()>=5){
+                encenderAlgunaCaja();
+            }
+        }
+    }
+    public void encenderAlgunaCaja(){
+        for(Caja c:ListaCajas){
+            if(!c.estado){
+                c.estado=true;
+                return;
+            }
+        }
+    }
 }
