@@ -37,35 +37,34 @@ public class SuperMercado extends Thread {
          
          
     }
-    public Caja cajaOptima(int candProductos){
+    public Caja cajaOptima(int candProductos,int minimo){
         
-        int minimo=0;
+
         Caja cajaAux=null;
-        for(Caja c: ListaCajas){
-            if(!c.tipo && candProductos<=10){
-                if(c.getClientes().size()<=minimo || minimo==0){
-                    minimo=c.getClientes().size();
-                    cajaAux=c;
-                }
+        for(int i=0;i<ListaCajas.size();i++){
+            Caja c=ListaCajas.get(i);
+            System.out.println(minimo);
+            if(c.getClientes().size()<=minimo || minimo==0){
+                int t=c.getClientes().size();
+                minimo=t;
+                cajaAux=c;
+                System.out.println(minimo);
             }
-            else{
-                if(c.getClientes().size()<=minimo || minimo==0){
-                    minimo=c.getClientes().size();
-                    cajaAux=c;
-                }
-            }
+                
         }
-        
+        //System.out.println(cajaAux.getNombre());
         return cajaAux;
     }
     public void reparteClientes(){
         int i;
         while(true){
+            this.ActualizarInterfaz();
             esperarXsegundos(1);
-            if(ListaClientesGlobales.size()>1 && contenedores.size()>1){
-                i=ListaClientesGlobales.get(0).getContenedor().getListaProductos().size();
+            
+            if(ListaClientesGlobales.size()>=1 && contenedores.size()>=1){
                 this.asignaConenedorACliente(ListaClientesGlobales.get(0));
-                cajaOptima(i).agegarClienteACola(ListaClientesGlobales.get(0));
+                i=ListaClientesGlobales.get(0).getContenedor().getListaProductos().size();
+                cajaOptima(i,0).agegarClienteACola(ListaClientesGlobales.get(0));
             }
         }
     }
@@ -118,26 +117,26 @@ public class SuperMercado extends Thread {
     Caja GCaja = new Caja(555, 21,"Caja");
     Caja HCaja = new Caja(645, 21,"Caja");
     Caja ICaja = new Caja(735, 21,"Caja");
-    Caja JCaja = new Caja(825, 21,"Caja");*/
+    Caja JCaja = new Caja(825, 21,"Caja");*//*
     Cliente cliente = new Cliente(260, 310,"Carlos",null);
     Cliente cliente2 = new Cliente(160, 310,"Brian",null);
     Cliente cliente3 = new Cliente(180, 310,"Nano",null);
     Cliente cliente4 = new Cliente(380, 310,"Peniche",null);
-     Cliente cliente5 = new Cliente(380, 310,"Eder",null);
-        this.crearNContenedores(4);
+     Cliente cliente5 = new Cliente(380, 310,"Eder",null);*/
+        this.crearNContenedores(10);
         this.creaNProductos(25);
-        
+        /*
          this.setClientes(cliente);
         this.setClientes(cliente2);
         this.setClientes(cliente3);
-         this.setClientes(cliente4);
+         this.setClientes(cliente4);*/
          
-        this.asignarNProductosAContenedor(5);
-        
+        //this.asignarNProductosAContenedor(5);
+        /*
         this.asignaConenedorACliente(cliente);
         this.asignaConenedorACliente(cliente2);
         this.asignaConenedorACliente(cliente3);
-        this.asignaConenedorACliente(cliente4);
+        this.asignaConenedorACliente(cliente4);*/
         
         
         
@@ -151,11 +150,11 @@ public class SuperMercado extends Thread {
        // ACaja.clientes.add(cliente);
         ListaCajas.add(ACaja);
         ListaCajas.add(BCaja);
-        
+        /*
         ACaja.agegarClienteACola(cliente);
         ACaja.agegarClienteACola(cliente2);
         BCaja.agegarClienteACola(cliente3);
-        BCaja.agegarClienteACola(cliente4);
+        BCaja.agegarClienteACola(cliente4);*/
        //
         //JOptionPane.showMessageDialog(null, ACaja.clientes.get(1).getNombre());
         //JOptionPane.showMessageDialog(null, ListaCajas.get(1).clientes.size());
@@ -270,6 +269,7 @@ public class SuperMercado extends Thread {
     }
     public void asignaConenedorACliente(Cliente nombre){
         nombre.setContenedor(this.contenedores.get(0));
+        this.asingaProductosAContenedor(this.contenedores.get(0));
         this.contenedores.remove(0);
     }
     public void asignarNProductosAContenedor(int n){
@@ -282,6 +282,17 @@ public class SuperMercado extends Thread {
             }
         }
     }
+    
+    public void asingaProductosAContenedor(Contenedor c){
+        int indice=0;
+        int cantidad=nAleatorio(1,5);
+        for(int i=0;i<cantidad;i++){
+            indice=nAleatorio(0,productos.size()-1);
+            //System.out.println(indice);
+            c.agregarProducto(productos.get(indice));
+        }
+}
+    
     public void quitarCliente(Cliente c){
         this.ListaClientesGlobales.remove(c);
     }  
@@ -289,8 +300,10 @@ public class SuperMercado extends Thread {
     public void run(){
         while(true){
             esperarXsegundos(1);
-            this.ActualizarInterfaz();
             reparteClientes();
+            
+            
+            
         }
     }
     private void esperarXsegundos(int segundos) {

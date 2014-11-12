@@ -67,7 +67,6 @@ public abstract class Caja extends Thread{
     }
     @Override
     public void run() {
-
         while(this.clientes.size()!=0){
             for(Cliente c:this.clientes){
                 
@@ -81,7 +80,7 @@ public abstract class Caja extends Thread{
                 this.quitarClienteDeCola(c);
             }
         }
-        
+                
         
         /*
         System.out.println("La caja " + this.nombre + " COMIENZA A PROCESAR LA COMPRA DEL CLIENTE "

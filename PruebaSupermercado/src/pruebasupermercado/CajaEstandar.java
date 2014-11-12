@@ -74,7 +74,8 @@ public class CajaEstandar extends Caja {
     }
 
     public void run() {
-
+        while(true){
+            esperarXsegundos(1);
         while(this.clientes.size()!=0){
             for(Cliente c:this.clientes){
                 
@@ -87,7 +88,7 @@ public class CajaEstandar extends Caja {
                 System.out.println("Termino "+ c.getNombre());
                 this.quitarClienteDeCola(c);
             }
-        }
+        }}
         
         
         /*
