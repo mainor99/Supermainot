@@ -45,7 +45,7 @@ public class SuperMercado extends Thread {
         for(Caja c: ListaCajas){
             if (c.estado){
                 if(!c.tipo && candProductos<=10){
-                    if(c.getClientes().size()<=minimo || minimo==-1){
+                    if(c.duracionCola() <=minimo || minimo==-1){
                         minimo=c.getClientes().size();
                         cajaAux=c;
                     }

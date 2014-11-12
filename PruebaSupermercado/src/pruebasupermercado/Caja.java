@@ -83,5 +83,11 @@ public abstract class Caja extends Thread{
 	private void esperarXsegundos(int segundos) {
 		
 	}
-
+    public int duracionCola(){
+        int duracion=0;
+        for(Cliente c : clientes){
+            duracion+=c.duracionCanasta();
+        }
+        return duracion;
+    }
 }

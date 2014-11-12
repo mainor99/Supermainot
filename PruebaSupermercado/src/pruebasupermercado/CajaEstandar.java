@@ -89,13 +89,7 @@ public class CajaEstandar extends Caja {
 
         }
     }
-    private int duracionCola(){
-        int duracion=0;
-        for(Cliente c : clientes){
-            duracion+=c.duracionCanasta();
-        }
-        return duracion;
-    }
+
 
     private void esperarXsegundos(int segundos) {
             try {
