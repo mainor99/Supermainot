@@ -190,9 +190,11 @@ public class SuperMercado extends Thread {
         ACaja.start();
         BCaja.start();
         CCaja.start();
+        DCaja.start();
         ECaja.start();
         FCaja.start();
         GCaja.start();
+        HCaja.start();
         ICaja.start();
         JCaja.start();
         this.start();
@@ -242,7 +244,7 @@ public class SuperMercado extends Thread {
     public void creaNProductos(int n){
         String nom="Producto";
         for(int i=0;i<n;i++){
-            Producto p=new Producto(nAleatorio(0,5), nom+" "+String.valueOf(i));
+            Producto p=new Producto(nAleatorio(5,7), nom+" "+String.valueOf(i));
             agregarProducto(p);
         }
         
