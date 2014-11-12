@@ -41,16 +41,6 @@ public class SuperMercado extends Thread {
         
         int minimo=-1;
         Caja cajaAux=null;
-
-        for(int i=0;i<ListaCajas.size();i++){
-            Caja c=ListaCajas.get(i);
-            System.out.println(minimo);
-            if(c.getClientes().size()<=minimo || minimo==-1){
-                int t=c.getClientes().size();
-                minimo=t;
-                cajaAux=c;
-                System.out.println(minimo);
-
         
         for(Caja c: ListaCajas){
             if (c.estado){
@@ -66,7 +56,6 @@ public class SuperMercado extends Thread {
                         cajaAux=c;
                     }
                 }
-
             }
         }
         return cajaAux;
