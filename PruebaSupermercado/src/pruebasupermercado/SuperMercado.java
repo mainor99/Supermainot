@@ -37,14 +37,14 @@ public class SuperMercado extends Thread {
          
          
     }
-    public Caja cajaOptima(int candProductos,int minimo){
+    public Caja cajaOptima(int candProductos){
         
-
+        int minimo=-1;
         Caja cajaAux=null;
         for(int i=0;i<ListaCajas.size();i++){
             Caja c=ListaCajas.get(i);
             System.out.println(minimo);
-            if(c.getClientes().size()<=minimo || minimo==0){
+            if(c.getClientes().size()<=minimo || minimo==-1){
                 int t=c.getClientes().size();
                 minimo=t;
                 cajaAux=c;
@@ -64,7 +64,7 @@ public class SuperMercado extends Thread {
             if(ListaClientesGlobales.size()>=1 && contenedores.size()>=1){
                 this.asignaConenedorACliente(ListaClientesGlobales.get(0));
                 i=ListaClientesGlobales.get(0).getContenedor().getListaProductos().size();
-                cajaOptima(i,0).agegarClienteACola(ListaClientesGlobales.get(0));
+                cajaOptima(i).agegarClienteACola(ListaClientesGlobales.get(0));
             }
         }
     }
