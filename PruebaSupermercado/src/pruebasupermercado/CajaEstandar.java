@@ -74,7 +74,7 @@ public class CajaEstandar extends Caja {
     }
 
     public void run() {
-
+        while(true){
         while(this.clientes.size()!=0){
             for(Cliente c:this.clientes){
                 
@@ -88,7 +88,7 @@ public class CajaEstandar extends Caja {
                 this.quitarClienteDeCola(c);
             }
         }
-        
+        }
         
         /*
         System.out.println("La caja " + this.nombre + " COMIENZA A PROCESAR LA COMPRA DEL CLIENTE "

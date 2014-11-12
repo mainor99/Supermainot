@@ -389,45 +389,105 @@ public class Super extends javax.swing.JFrame implements Runnable {
 
     private void jCheckBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox2MouseClicked
           //  JOptionPane.showMessageDialog(null, "holis");        // TODO add your handling code here:
-       //sup.getCajas().get(0).
+       
+        if(jCheckBox2.isSelected()){
+            sup.getCajas().get(0).estado=true;
+            JOptionPane.showMessageDialog(null, "si funka");
+        }
+        else
+            sup.getCajas().get(0).estado=false;
         
         
     }//GEN-LAST:event_jCheckBox2MouseClicked
 
     private void jCheckBox3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox3MouseClicked
         // TODO add your handling code here:
+        if(jCheckBox3.isSelected()){
+            sup.getCajas().get(1).estado=true;
+            JOptionPane.showMessageDialog(null, "si funka");
+        }
+        else
+            sup.getCajas().get(1).estado=false;
     }//GEN-LAST:event_jCheckBox3MouseClicked
 
     private void jCheckBox4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox4MouseClicked
         // TODO add your handling code here:
+        if(jCheckBox4.isSelected()){
+            sup.getCajas().get(2).estado=true;
+            JOptionPane.showMessageDialog(null, "si funka");
+        }
+        else
+            sup.getCajas().get(2).estado=false;
     }//GEN-LAST:event_jCheckBox4MouseClicked
 
     private void jCheckBox5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox5MouseClicked
         // TODO add your handling code here:
+        if(jCheckBox5.isSelected()){
+            sup.getCajas().get(3).estado=true;
+            JOptionPane.showMessageDialog(null, "si funka");
+        }
+        else
+            sup.getCajas().get(3).estado=false;
     }//GEN-LAST:event_jCheckBox5MouseClicked
 
     private void jCheckBox6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox6MouseClicked
         // TODO add your handling code here:
+        if(jCheckBox6.isSelected()){
+            sup.getCajas().get(4).estado=true;
+            JOptionPane.showMessageDialog(null, "si funka");
+        }
+        else
+            sup.getCajas().get(4).estado=false;
     }//GEN-LAST:event_jCheckBox6MouseClicked
 
     private void jCheckBox7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox7MouseClicked
         // TODO add your handling code here:
+        if(jCheckBox7.isSelected()){
+            sup.getCajas().get(5).estado=true;
+            JOptionPane.showMessageDialog(null, "si funka");
+        }
+        else
+            sup.getCajas().get(5).estado=false;
     }//GEN-LAST:event_jCheckBox7MouseClicked
 
     private void jCheckBox8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox8MouseClicked
         // TODO add your handling code here:
+        if(jCheckBox8.isSelected()){
+            sup.getCajas().get(6).estado=true;
+            JOptionPane.showMessageDialog(null, "si funka");
+        }
+        else
+            sup.getCajas().get(6).estado=false;
     }//GEN-LAST:event_jCheckBox8MouseClicked
 
     private void jCheckBox9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox9MouseClicked
         // TODO add your handling code here:
+        if(jCheckBox9.isSelected()){
+            sup.getCajas().get(7).estado=true;
+            JOptionPane.showMessageDialog(null, "si funka");
+        }
+        else
+            sup.getCajas().get(7).estado=false;
     }//GEN-LAST:event_jCheckBox9MouseClicked
 
     private void jCheckBox10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox10MouseClicked
         // TODO add your handling code here:
+        if(jCheckBox10.isSelected()){
+            sup.getCajas().get(8).estado=true;
+            JOptionPane.showMessageDialog(null, "si funka");
+        }
+        else
+            sup.getCajas().get(8).estado=false;
     }//GEN-LAST:event_jCheckBox10MouseClicked
 
     private void jCheckBox11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox11MouseClicked
         // TODO add your handling code here:
+        if(jCheckBox11.isSelected()){
+            sup.getCajas().get(9).estado=true;
+            JOptionPane.showMessageDialog(null, "si funka");
+        }
+        else
+            sup.getCajas().get(9).estado=false;
     }//GEN-LAST:event_jCheckBox11MouseClicked
 
     /**
