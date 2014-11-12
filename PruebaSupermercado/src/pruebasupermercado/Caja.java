@@ -18,14 +18,13 @@ import javax.swing.JOptionPane;
 public abstract class Caja extends Thread{
 
     private Image Caja;
-    //Coordenadas de la pelota
     public int X;
     public int Y;
     public LinkedList<Cliente> clientes= new LinkedList<>();
     public boolean tipo;
     public boolean estado;
-   private String nombre;
-   // private LinkedList<Cliente> clientes=new LinkedList();
+    private String nombre;
+    public int tiempoAcumulado;
     private SuperMercado superMain;
 
  
@@ -65,7 +64,6 @@ public abstract class Caja extends Thread{
     public void quitarClienteDeCola(Cliente c){
      
     }
-
     public void run() {
         while(this.clientes.size()!=0){
             for(Cliente c:this.clientes){
@@ -80,28 +78,6 @@ public abstract class Caja extends Thread{
                 this.quitarClienteDeCola(c);
             }
         }
-                
-        
-        /*
-        System.out.println("La caja " + this.nombre + " COMIENZA A PROCESAR LA COMPRA DEL CLIENTE "
-                + this.cliente.getNombre() + " EN EL TIEMPO: "
-                + (System.currentTimeMillis() - this.initialTime) / 1000
-                + "seg");
-        
-        for (int i = 0; i < this.cliente.getCarroCompra().length; i++) {
-            
-            this.esperarXsegundos(cliente.getCarroCompra()[i]);
-            System.out.println("Procesado el producto " + (i + 1)
-                    + " del cliente " + this.cliente.getNombre() + "->Tiempo: "
-                    + (System.currentTimeMillis() - this.initialTime) / 1000
-                    + "seg");
-        }
-        
-        System.out.println("La cajera " + this.nombre + " HA TERMINADO DE PROCESAR "
-                + this.cliente.getNombre() + " EN EL TIEMPO: "
-                + (System.currentTimeMillis() - this.initialTime) / 1000
-                + "seg");*/
-
     }
 
 	private void esperarXsegundos(int segundos) {

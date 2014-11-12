@@ -28,14 +28,14 @@ public class CajaExpress extends Caja{
     
 
     public CajaExpress(int x, int y,String nombre) {
-        //coordenadas iniciales
-         clientes=new LinkedList<>();
-        this.X = x; this.Y = y;
-        //imagen de la caja
+        clientes=new LinkedList<>();
+        this.X = x; 
+        this.Y = y;
         Caja = new ImageIcon(getClass().getResource("Caja.png")).getImage();
-         this.nombre = nombre;
-         this.tipo=false;
-         this.estado=true;
+        this.nombre = nombre;
+        this.tipo=false;
+        this.estado=true;
+        this.tiempoAcumulado=0;
     }
     
      public void dibujar(Graphics g) {
@@ -88,6 +88,7 @@ public class CajaExpress extends Caja{
                     System.out.println(this.nombre+" prosesando "+
                             p.getDescripcion()+" duracion: "+String.valueOf(p.getDuracion())+
                             " del cliente "+c.getNombre());
+                    this.tiempoAcumulado+=p.getDuracion();
                     this.esperarXsegundos(p.getDuracion());
                 }
                 System.out.println("Termino "+ c.getNombre());

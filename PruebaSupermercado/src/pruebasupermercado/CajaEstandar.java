@@ -17,24 +17,18 @@ import javax.swing.ImageIcon;
  */
 public class CajaEstandar extends Caja {
     private Image Caja;
-
-  //  public LinkedList<Cliente> clientes= new LinkedList<Cliente>();
-
-   private String nombre;
-
-   // private LinkedList<Cliente> clientes=new LinkedList();
+    private String nombre;
     private SuperMercado superMain;
 
-     public CajaEstandar(int x, int y,String nombre) {
-         clientes=new LinkedList();
-        //coordenadas iniciales
+    public CajaEstandar(int x, int y,String nombre) {
+        clientes=new LinkedList();
         this.X = x; 
         this.Y = y;
-        //imagen de la caja
         Caja = new ImageIcon(getClass().getResource("Caja.png")).getImage();
-         this.nombre = nombre;
-         this.tipo=true;
-         this.estado=true;
+        this.nombre = nombre;
+        this.tipo=true;
+        this.estado=true;
+        this.tiempoAcumulado=0;
     }
     
      public void dibujar(Graphics g) {
@@ -85,6 +79,7 @@ public class CajaEstandar extends Caja {
                     System.out.println(this.nombre+" prosesando "+
                             p.getDescripcion()+" duracion: "+String.valueOf(p.getDuracion())+
                             " del cliente "+c.getNombre());
+                    this.tiempoAcumulado+=p.getDuracion();
                     this.esperarXsegundos(p.getDuracion());
                 }
                 System.out.println("Termino "+ c.getNombre());
